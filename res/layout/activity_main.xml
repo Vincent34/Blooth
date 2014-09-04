@@ -1,0 +1,133 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <SeekBar 
+        android:id="@+id/leftbar"
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"/>
+    <TextView 
+        android:id="@+id/lefttext"
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:text="0"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Received Text:" />
+
+    <TextView
+        android:id="@+id/Receive_text"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+
+    <EditText
+        android:id="@+id/Send_text"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <Button
+            android:id="@+id/bt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:onClick="Send"
+            android:text="Send Message" />
+
+        <Button
+            android:id="@+id/accelerometer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:onClick="ClickAccelerometer"
+            android:text="Accelerometer" />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content" >
+
+        <Button
+            android:id="@+id/bt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:text="Set Minimum" 
+            android:onClick="ClickMin"/>
+
+        <Button
+            android:id="@+id/accelerometer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="Set Maximum"
+            android:onClick="ClickMax" />
+    </RelativeLayout>
+
+   	<GridLayout
+   	    android:layout_width="match_parent"
+   	    android:layout_height="wrap_content"
+   	    android:layout_weight="0.66"
+   	    android:columnCount="1" >
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_column="0"
+            android:layout_gravity="center_horizontal|top"
+            android:layout_row="0"
+            android:onClick="ClickForward"
+            android:text="Forward" />
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_column="0"
+            android:layout_gravity="left|center_vertical"
+            android:layout_row="0"
+            android:onClick="ClickLeft"
+            android:text="Left" />
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_column="0"
+            android:layout_gravity="right|center_vertical"
+            android:layout_row="0"
+            android:onClick="ClickRight"
+            android:text="Right" />
+
+        <Button
+            android:id="@+id/button5"
+            android:layout_column="0"
+            android:layout_gravity="center"
+            android:layout_row="0"
+            android:onClick="ClickPause"
+            android:text="Pause" />
+
+        <Button
+            android:id="@+id/button6"
+            android:layout_column="0"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_row="0"
+            android:onClick="ClickBack"
+            android:text="Back" />
+    </GridLayout>
+
+    <TextView
+        android:id="@+id/HUD"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="power: 0; direction: 0;" />
+    <SeekBar 
+        android:id="@+id/rightbar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"/>
+    <TextView 
+        android:id="@+id/righttext"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="0"/>
+
+</LinearLayout>
