@@ -57,6 +57,7 @@ public class MainActivity extends Activity implements SensorEventListener {
 		try {
 			btSocket = 	device.createRfcommSocketToServiceRecord(myUUID);
 		} catch (IOException e) {
+			e.printStackTrace();
 			Log.e("TAG", "Socket creation failed");
 		}
 		//取消Discover
@@ -64,7 +65,7 @@ public class MainActivity extends Activity implements SensorEventListener {
 		//连接
 		try {
 			btSocket.connect();
-			Log.d("TAG", "BT connection established, data transfer link open.");
+			Log.d("Connect", "BT connection established, data transfer link open.");
 		} catch (IOException e) {
 			try {
 				btSocket.close();
@@ -195,12 +196,12 @@ public class MainActivity extends Activity implements SensorEventListener {
 			
 			while (true) {
 				try {
-					if ((bytes = myIn.read(buffer)) > 0) {
+					if ((bytes = myIn.read(buffer)) > 0) {//得到字节流
 						char data[] = new char[bytes];
 						for (int i = 0;i < bytes;i++) 
 							data[i] = (char)buffer[i];
-						String s = new String(data);
-						Message msg = new Message();
+						String s = new String(data);//得到字符串
+						Message msg = new Message();//用于传递消息
 						msg.obj = s;
 						msg.what = 0;
 						listenHandler.sendMessage(msg);
@@ -225,6 +226,7 @@ public class MainActivity extends Activity implements SensorEventListener {
 			} catch (IOException e) {
 				e.printStackTrace();
 				Log.e("Connect","Send Failed");
+				Toast.makeText(this, "Not Connected", Toast.LENGTH_SHORT);
 				return;
 			}
 		}
